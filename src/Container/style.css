@@ -1,0 +1,11 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 15px;
+    background-color: hsl(0, 0%, 96%);
+    align-items: center;
+    border: 1px solid hsl(0, 0%, 20%);
+    border-radius: 10px;
+    box-shadow: 2px 2px hsl(0, 0%, 20%);
+}
