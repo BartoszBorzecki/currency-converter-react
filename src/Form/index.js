@@ -5,10 +5,18 @@ import { currencies } from "../currencies";
 const Form = () => {
     const [amount, setAmount] = useState("");
     const [currency, setCurrency] = useState(currencies[0].short);
+    const [result, setResult] = useState("");
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        calculatedResult(amount, currency);
     };
+
+    const calculatedResult = (amount, currency) => {
+        const { rate: exchangeRate, short} = currencies.find(({ short }) => short === currency);
+    
+        setResult(`${(amount / exchangeRate).toFixed(2)} ${short}`);
+      };
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
@@ -51,7 +59,7 @@ const Form = () => {
                 </p>
                 <button className="form__button">Oblicz</button>
                 <p>
-                    <span className="form__resultText">Wynik: <strong></strong></span>
+                    <span className="form__resultText">Wynik: <strong>{result}</strong> </span>
                 </p>
             </fieldset>
         </form>
