@@ -37,10 +37,12 @@
     border: 1px solid hsl(0, 0%, 68%);
     border-radius: 3px;
     padding: 10px;
+    transition: 1s;
 }
 
 .form__button:hover {
     background-color: hsl(0, 0%, 80%);
+    transform: scale(1.05);
 }
 
 .form__button:active {
