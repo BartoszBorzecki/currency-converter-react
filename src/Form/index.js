@@ -13,10 +13,10 @@ const Form = () => {
     };
 
     const calculatedResult = (amount, currency) => {
-        const { rate: exchangeRate, short} = currencies.find(({ short }) => short === currency);
-    
+        const { rate: exchangeRate, short } = currencies.find(({ short }) => short === currency);
+
         setResult(`${(amount / exchangeRate).toFixed(2)} ${short}`);
-      };
+    };
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
@@ -24,36 +24,36 @@ const Form = () => {
                 <legend className="form__legend">Kalkulator walut</legend>
                 <p className="form__paragraph">
                     <label><span className="form__labelText">Wymień:</span>
-                        <input 
-                        className="form__field" 
-                        value={amount}
-                        onChange={({target}) => setAmount(target.value)}
-                        type="number" 
-                        min="1" 
-                        step="0.01"
-                        placeholder="wpisz kwotę" 
-                        autoFocus
-                        required  />
+                        <input
+                            className="form__field"
+                            value={amount}
+                            onChange={({ target }) => setAmount(target.value)}
+                            type="number"
+                            min="1"
+                            step="0.01"
+                            placeholder="wpisz kwotę"
+                            autoFocus
+                            required />
                         <strong> PLN </strong>
                     </label>
                 </p>
                 <p>
                     <label><span className="form__labelText">Na:</span>
-                        <select 
-                        className="form__select"
-                        value={currency}
-                        onChange={({target}) => setCurrency(target.value)}
+                        <select
+                            className="form__select"
+                            value={currency}
+                            onChange={({ target }) => setCurrency(target.value)}
                         >
                             {currencies.map(currency => (
 
                                 <option
-                                key={currency.id}
-                                value={currency.short}
+                                    key={currency.id}
+                                    value={currency.short}
                                 >
                                     {currency.name} ({currency.short})
                                 </option>
                             ))};
-                          
+
                         </select>
                     </label>
                 </p>
